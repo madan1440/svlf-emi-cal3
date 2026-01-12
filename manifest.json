@@ -2,8 +2,8 @@
 {
   "name": "SVLF EMI Calculator",
   "short_name": "EMI Calc",
-  "start_url": "/SVLF-Emi-Calculator/",
-  "scope": "/SVLF-Emi-Calculator/",
+  "start_url": "/svlf-emi-cal3/",
+  "scope": "/svlf-emi-cal3/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4f46e5",
@@ -20,3 +20,4 @@
     }
   ]
 }
+
