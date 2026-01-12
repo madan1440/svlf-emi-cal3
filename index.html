@@ -3,28 +3,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#4f46e5" />
   <title>SVLF EMI Calculator</title>
 
-  <!-- Theme color for PWA status bar -->
-  <meta name="theme-color" content="#4f46e5" />
+  <!-- Manifest (relative path for project subfolder) -->
+  <link rel="manifest" href="./manifest.json" />
 
-  <!-- Manifest -->
-  <link rel="manifest" href="./manifest.json">
-
-  <!-- (Optional) iOS PWA support -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <!-- If you add an iOS icon later:
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  -->
+  <!-- iOS (optional; add icon later if you want) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <!-- <link rel="apple-touch-icon" href="./icon-192.png" /> -->
 
   <!-- CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+
   <script>
     // Show/hide interest input groups based on selected interest type
     function toggleInterestFields() {
@@ -152,19 +146,17 @@
     </div>
   </div>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- Calculator logic -->
+  <script src="./script.js"></script>
 
-  <!-- Service Worker registration -->
+  <!-- Service Worker registration for subfolder scope -->
   <script>
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
-          .then(reg => console.log("Service Worker registered", reg.scope))
-          .catch(err => console.error("SW registration failed", err));
-      });
+      navigator.serviceWorker
+        .register("./service-worker.js", { scope: "./" })
+        .then(reg => console.log("Service Worker registered:", reg.scope))
+        .catch(err => console.error("SW registration failed", err));
     }
   </script>
 </body>
 </html>
-
